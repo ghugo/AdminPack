@@ -19,6 +19,10 @@ commands:
     usage: /durability <value>
     aliases: dura
     permission: AdminPack.admin
+  horse:
+    description: Spawns a custom horse. Variants - horse, donkey, mule, skeleton, and zombie.  Colors - white, creamy, chestnut, brown, black, gray, and dark_brown.  Styles - none, white, whitefield, white_dots, and black_dots.
+    usage: /horse <variant> <flags> or /horse <variant> <color> <style> <flags>.
+    permission: InvasionPack.admin
   imstuck:
     description: Gets a player out of a vehicle if they are stuck.  Only use if needed.
     usage: /imstuck

@@ -1,99 +1,127 @@
 name: AdminPack
 version: ${project.version}
 main: ghugo.adminpack.AdminPack
-api-version: 1.13
+api-version: 1.14
 authors: [Gage Hugo]
 description: Collection of useful functions for admins
 commands:
   batvanish:
     description: Makes the user perform /vanish and spawns 8 bats around the player.
     usage: /batvanish
-    permission: AdminPack.admin
+    permission: AdminPack.vanish
   bookedit:
     description: Allows you to edit the author or copy the held book.  Colors are supported.
     usage: /bookedit <copy|author> <new author>
     aliases: be
-    permission: AdminPack.admin
+    permission: AdminPack.bookedit
   durability:
     description: Sets the durability of the held item to the percentage entered.  Must be between 1 and 100.
     usage: /durability <value>
     aliases: dura
-    permission: AdminPack.admin
+    permission: AdminPack.durability
+  horse:
+    description: Spawns a custom horse. Variants - horse, donkey, mule, skeleton, and zombie.  Colors - white, creamy, chestnut, brown, black, gray, and dark_brown.  Styles - none, white, whitefield, white_dots, and black_dots.
+    usage: /horse <variant> <flags> or /horse <variant> <color> <style> <flags>.
+    permission: InvasionPack.horse
   imstuck:
     description: Gets a player out of a vehicle if they are stuck.  Only use if needed.
     usage: /imstuck
-    permission: AdminPack.all
-  itemrestore:
-    description: Spawns a chest with a player's last 54 items inside from their last death(s).
-    usage: /itemrestore <player>
-    aliases: ir
-    permission: AdminPack.admin
+    permission: AdminPack.imstuck
   lore:
     description: Adds entered text as lore for the item in hand. Entering clear will clear any lore, adding more lore will add on to existing lore.
     usage: /lore <clear|text>
-    permission: AdminPack.admin
+    permission: AdminPack.lore
   music:
     description: Plays a music disc at a player's location. Names are 13, cat, blocks, chirp, far, mall, mellohi, stal, strad, 11, ward.
     usage: /music <player> <music disc>
-    permission: AdminPack.admin
+    permission: AdminPack.music
   npc:
     description: Displays text to in-game chat with an custom name.  Use "_" for spaces in NPC name.  Colors are supported.
     usage: /npc <name> <message>
-    permission: AdminPack.admin
+    permission: AdminPack.npc
   piggyback:
     description: Allows you to ride piggyback on another player.
     usage: /piggyback <player>
-    permission: AdminPack.admin
+    permission: AdminPack.piggyback
   playerhead:
     description: Creates a player head item with the entered name's skin.
     usage: /playerhead <player>
     aliases: phead
-    permission: AdminPack.admin
-  quest:
-    description: test
-    usage: /quest <create|list|remove> <item>
-    permission: AdminPack.admin
+    permission: AdminPack.playerhead
   rename:
     description: Allows renaming of items without an anvil.  Color codes can be used.
     usage: /rename <name>
-    permission: AdminPack.admin
+    permission: AdminPack.rename
   rocket:
     description: Rockets a player. Flags are -n for normal, -h for high (fatal) and -v to continuously launch them to Y = 1000 (Also quite fatal).
     usage: /rocket <player> [flag]
-    permission: AdminPack.admin
+    permission: AdminPack.rocket
   roll:
     description: Rolls a number between 1-100.
     usage: /roll
-    permission: AdminPack.all
+    permission: AdminPack.roll
   scare:
     description: Plays a spooky sound for a player.  Only the targeted player will hear this.
     usage: /scare <flag> <player>
-    permission: AdminPack.admin
+    permission: AdminPack.scare
   slap:
     description: Slaps a player. Flags are -s to silently slap, is -h for hard slap which may send player flying high.
     usage: /slap <player> [flag]
-    permission: AdminPack.admin
+    permission: AdminPack.slap
   smokevanish:
     description: Macro to run supervanish, with smoke effects
     usage: /smokevanish
-    permission: AdminPack.admin
+    permission: AdminPack.vanish
   twixxo:
     description: Displays to chat "/me Loves Everyone".  May give a special named rose.
     usage: /twixxo
-    permission: AdminPack.all
-  vote:
-    description: Allows all online players to vote for any type of choice.  Choices should be comma-separated, no spaces (ex. yes,no,maybe)
-    usage: /vote <create/cast> <question|choice>
-    permission: AdminPack.all
+    permission: AdminPack.twixxo
 permissions:
   AdminPack.*:
     description: Gives access to all nodes.
     children:
-      AdminPack.admin: true
-      AdminPack.all: true
-  AdminPack.admin:
-    description: Allows access to admin-only abilities.
+      AdminPack.bookedit: true
+      AdminPack.durability: true
+      AdminPack.horse: true
+      AdminPack.imstuck: true
+      AdminPack.lore: true
+      AdminPack.music: true
+      AdminPack.piggyback: true
+      AdminPack.playerhead: true
+      AdminPack.rename: true
+      AdminPack.rocket: true
+      AdminPack.roll: true
+      AdminPack.scare: true
+      AdminPack.slap: true
+      AdminPack.vanish: true
+      AdminPack.twixxo: true
+  AdminPack.bookedit:
     default: op
-  AdminPack.all:
-    description: Allows access to non-admin commands.
-    default: true  
+  AdminPack.durability:
+    default: op
+  AdminPack.horse:
+    default: op
+  AdminPack.imstuck:
+    default: true
+  AdminPack.lore:
+    default: op
+  AdminPack.music:
+    default: op
+  AdminPack.piggyback:
+    default: op
+  AdminPack.playerhead:
+    default: op
+  AdminPack.rename:
+    default: op
+  AdminPack.rocket:
+    default: op
+  AdminPack.roll:
+    default: true
+  AdminPack.scare:
+    default: op
+  AdminPack.slap:
+    default: op
+  AdminPack.vanish:
+    default: op
+  AdminPack.twixxo:
+    default: true

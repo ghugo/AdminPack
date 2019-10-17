@@ -3,6 +3,7 @@ package ghugo.adminpack.Basic;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -28,7 +29,12 @@ public class Playerhead implements CommandExecutor {
     private void getPlayerHead(Player player, String playerName) {
         final ItemStack skull = new ItemStack(Material.PLAYER_HEAD, 1);
         final SkullMeta meta = (SkullMeta) skull.getItemMeta();
-        meta.setOwner(playerName);
+        if (playerName.matches("[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}")) {
+            OfflinePlayer op = player.getServer().getOfflinePlayer(playerName);
+            meta.setOwningPlayer(op);
+        } else {
+            meta.setOwner(playerName);
+        }
         skull.setItemMeta(meta);
         player.sendMessage(ChatColor.GREEN + "Received " + playerName + "'s head");
         player.getWorld().dropItemNaturally(player.getLocation(), skull);

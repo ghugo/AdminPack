@@ -14,6 +14,7 @@ public final class AdminPack extends JavaPlugin {
         getCommand("batvanish").setExecutor(new CustomVanish());
         getCommand("bookedit").setExecutor(new BookEdit());
         getCommand("dura").setExecutor(new Durability());
+        getCommand("horse").setExecutor(new CustomHorse());
         getCommand("imstuck").setExecutor(new Stuck());
         getCommand("lore").setExecutor(new Lore());
         getCommand("music").setExecutor(new Music());
@@ -27,7 +28,6 @@ public final class AdminPack extends JavaPlugin {
         getCommand("slap").setExecutor(new Slap());
         getCommand("smokevanish").setExecutor(new CustomVanish());
         getCommand("twixxo").setExecutor(new Twixxo());
-        getCommand("vote").setExecutor(new Vote(this));
     }
 
     @Override
